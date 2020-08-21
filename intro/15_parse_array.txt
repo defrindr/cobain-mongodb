@@ -1,0 +1,14 @@
+// prepare data
+
+db.createCollection('listBuah')
+
+db.listBuah.insert({
+	buah: ["apel", "jambu", "melon", "semangka"]
+})
+
+
+// query
+
+db.listBuah.aggregate({
+	$unwind: "$buah"
+}).pretty()
