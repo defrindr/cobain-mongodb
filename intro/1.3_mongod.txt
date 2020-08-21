@@ -1,0 +1,22 @@
+cd [path]
+mongod
+
+// or
+
+mongod --dbpath [path] --port [port]
+
+// example : 
+// mongod --dbpath ~/Documents/Learn/mongodb/database --port 27017
+
+
+
+
+// start as daemon
+
+mongod --fork  --logpath [path_to_mongod_log]
+
+// example:
+// mongod --fork --logpath /var/log/mongodb/mongod.log
+
+
+

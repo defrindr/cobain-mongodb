@@ -1,0 +1,7 @@
+db.siswa.aggregate({
+	$replaceWith: {
+		word: {
+			$concat: ["$nama", " adalah murid kelas ","$kelas"]
+		}
+	}
+});

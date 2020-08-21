@@ -1,0 +1,4 @@
+help
+db.help()
+db.[collection_name].help()
+db.[collection_name].find().help()

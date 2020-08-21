@@ -1,0 +1,326 @@
+// person
+// - fullname
+// - shortname
+// - birthday
+// - address_id
+// publish_book
+// - book_id
+// - publisher_name
+// - country
+// - date
+// books
+// - title
+// - language
+// - author_id
+// - genres
+// categories
+// - type
+// genres
+// - genre
+// - category_id
+// social_media
+// - person_id
+// - social_media_name
+// - link
+// address
+// - postal_code
+// - district_name
+// - city_name
+// - regency_name
+// - province_name
+// ================================
+
+
+
+
+db.createCollection('categories')
+db.categories.insertMany([{
+	_id: 'c01',
+	category: 'Fiction'
+},{
+	_id: 'c02',
+	category: 'Non-Fiction'
+},])
+
+
+
+// ================================
+
+
+
+
+db.createCollection('genres')
+db.genres.insertMany([{
+	'_id': 'g01',
+	'genre': 'action',
+	'type': 'c01'
+},{
+	'_id': 'g02',
+	'genre': 'adventure',
+	'type': 'c01'
+},{
+	'_id': 'g03',
+	'genre': 'crime',
+	'type': 'c01'
+},{
+	'_id': 'g04',
+	'genre': 'fantasy',
+	'type': 'c01'
+},{
+	'_id': 'g05',
+	'genre': 'horror',
+	'type': 'c01'
+},{
+	'_id': 'g06',
+	'genre': 'mistery',
+	'type': 'c01'
+},{
+	'_id': 'g07',
+	'genre': 'poetry',
+	'type': 'c01'
+},{
+	'_id': 'g08',
+	'genre': 'romance',
+	'type': 'c01'
+},{
+	'_id': 'g09',
+	'genre': 'Young adult',
+	'type': 'c01'
+},{
+	'_id': 'g10',
+	'genre': 'Thriller',
+	'type': 'c01'
+},{
+	'_id': 'g11',
+	'genre': 'Biography',
+	'type': 'c02'
+},{
+	'_id': 'g12',
+	'genre': 'Diary',
+	'type': 'c02'
+},{
+	'_id': 'g13',
+	'genre': 'Dictionary',
+	'type': 'c02'
+},{
+	'_id': 'g14',
+	'genre': 'Guide',
+	'type': 'c02'
+},{
+	'_id': 'g15',
+	'genre': 'Humor',
+	'type': 'c02'
+},{
+	'_id': 'g16',
+	'genre': 'Journal',
+	'type': 'c02'
+},{
+	'_id': 'g17',
+	'genre': 'Math',
+	'type': 'c02'
+},{
+	'_id': 'g18',
+	'genre': 'Philosophy',
+	'type': 'c02'
+},{
+	'_id': 'g19',
+	'genre': 'Science',
+	'type': 'c02'
+},{
+	'_id': 'g20',
+	'genre': 'Review',
+	'type': 'c02'
+},])
+
+// ================================
+
+
+
+
+db.createCollection('address');
+
+db.address.insertMany([{
+	_id: 'a160001',
+	postal_code: '160001',
+	district_name: 'Pulung',
+	city_name: 'Ponorogo',
+	regency_name: 'Ponorogo',
+	province_name: 'Jawa Timur',
+	
+},{
+	_id: 'a160002',
+	postal_code: '160002',
+	district_name: 'Jenangan',
+	city_name: 'Ponorogo',
+	regency_name: 'Ponorogo',
+	province_name: 'Jawa Timur',
+	
+}])
+
+// ================================
+
+
+
+
+db.createCollection('person')
+
+
+db.person.insertMany([{
+	_id: 'naruto01',
+	fullname: 'Uzumaki Naruto',
+	shortname: 'Naruto',
+	birthday: '1998-08-07',
+	address_id: 'a160002'
+},{
+	_id: 'naruto02',
+	fullname: 'Uchiha Sasuke',
+	shortname: 'Sasuke',
+	birthday: '1998-08-07',
+	address_id: 'a160002'
+},{
+	_id: 'naruto03',
+	fullname: 'Hatake Kakashi',
+	shortname: 'Kakashi',
+	birthday: '1998-08-07',
+	address_id: 'a160002'
+},{
+	_id: 'naruto04',
+	fullname: 'Mei Terumi',
+	shortname: 'Mei',
+	birthday: '1998-08-07',
+	address_id: 'a160002'
+},{
+	_id: 'harry01',
+	fullname: 'Harry James Potter',
+	shortname: 'Harry',
+	birthday: '1998-08-07',
+	address_id: 'a160001'
+},{
+	_id: 'harry02',
+	fullname: 'Hermione Jean Granger',
+	shortname: 'Hermione',
+	birthday: '1998-08-07',
+	address_id: 'a160001'
+},{
+	_id: 'harry03',
+	fullname: 'Luna Lovegood',
+	shortname: 'Luna',
+	birthday: '1998-08-07',
+	address_id: 'a160001'
+},{
+	_id: 'harry04',
+	fullname: 'Ginevra weasley',
+	shortname: 'ginny',
+	birthday: '1998-08-07',
+	address_id: 'a160001'
+},]);
+
+// ================================
+
+
+
+
+db.createCollection('books')
+
+db.books.insertMany([{
+	_id: 'ebook01',
+	title: 'Harry Potter and Goblet Fire',
+	language: 'Indonesia',
+	author_id: ['harry01', 'harry02'],
+	genres: ['g01','g02','g04','g07']
+},{
+	_id: 'ebook02',
+	title: 'Harry Potter and Azkaban prisoner',
+	language: 'Indonesia',
+	author_id: ['harry01', 'harry03', 'harry04'],
+	genres: ['g03','g010','g05','g07'],
+}]);
+
+// ================================
+
+
+
+
+db.createCollection('social_media')
+
+db.social_media.insertMany([{
+	person_id: 'harry01',
+	social_media_name: 'Harryot',
+	link: 'https://github.com/harryout'
+},{
+	person_id: 'harry02',
+	social_media_name: 'GrangerMan',
+	link: 'https://github.com/grangerman'
+}])
+
+// ================================
+
+
+
+
+db.createCollection('publish_book')
+
+db.publish_book.insertMany([{
+	book_id: 'ebook01',
+	publisher_name: 'Grahmeia',
+	country: 'Indonesia',
+	date: '2002-05-19'
+},{
+	book_id: 'ebook02',
+	publisher_name: 'Grahmeia',
+	country: 'Indonesia',
+	date: '2002-05-20'
+}])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

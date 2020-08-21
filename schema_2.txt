@@ -1,0 +1,109 @@
+// siswa
+// - nama
+// exams
+// - siswa
+// - mapel
+// - nilai
+// - tanggal
+// mapels
+// - mapel
+
+use db_exams
+
+db.createCollection('siswa');
+db.createCollection('exams');
+db.createCollection('mapel');
+
+db.siswa.insertMany([{
+	_id: 'p001',
+	nama: 'harry',
+	kelas: 'X'
+},{
+	_id: 'p002',
+	nama: 'hermione',
+	kelas: 'X'
+}])
+
+
+db.mapels.insertMany([{
+	_id:'m001',
+	nama_mapel: 'IPA'
+},{
+	_id:'m002',
+	nama_mapel: 'MATEMATIKA'
+},{
+	_id:'m003',
+	nama_mapel: 'PENJAS'
+}])
+
+
+db.exams.insertMany([{
+	siswa: 'p001',
+	mapel: 'm001',
+	nilai: 90,
+	tanggal: '2020-01-01'
+},{
+	siswa: 'p001',
+	mapel: 'm002',
+	nilai: 80,
+	tanggal: '2020-01-01'
+},{
+	siswa: 'p001',
+	mapel: 'm003',
+	nilai: 70,
+	tanggal: '2020-01-01'
+},{
+	siswa: 'p002',
+	mapel: 'm001',
+	nilai: 60,
+	tanggal: '2020-01-01'
+},{
+	siswa_id: 'p002',
+	mapel_id: 'm002',
+	nilai: 85,
+	tanggal: '2020-01-01'
+},{
+	siswa: 'p002',
+	mapel: 'm003',
+	nilai: 90,
+	tanggal: '2020-01-01'
+},{
+	siswa: 'p001',
+	mapel: 'm001',
+	nilai: 100,
+	tanggal: '2020-01-02'
+},{
+	siswa: 'p001',
+	mapel: 'm002',
+	nilai: 85,
+	tanggal: '2020-01-02'
+},{
+	siswa: 'p001',
+	mapel: 'm003',
+	nilai: 50,
+	tanggal: '2020-01-02'
+},{
+	siswa: 'p002',
+	mapel: 'm001',
+	nilai: 100,
+	tanggal: '2020-01-02'
+},{
+	siswa: 'p002',
+	mapel: 'm002',
+	nilai: 90,
+	tanggal: '2020-01-02'
+},{
+	siswa: 'p002',
+	mapel: 'm003',
+	nilai: 95,
+	tanggal: '2020-01-02'
+},])
+
+
+
+
+
+
+
+
+

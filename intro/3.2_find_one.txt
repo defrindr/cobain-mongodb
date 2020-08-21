@@ -1,0 +1,6 @@
+db.students.findOne() 
+// or
+db.students.find().limit(1).pretty() 
+
+// same output with
+// select * from students limit 1

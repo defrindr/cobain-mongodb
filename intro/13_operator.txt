@@ -1,0 +1,48 @@
+// use db_exams
+
+db.exams.aggregate([{
+	$lookup: {
+		from: 'siswa',
+		let: {siswa_id: "$siswa"},
+		pipeline: [
+			{ $match: { $expr: { $eq:["$_id", "$$siswa_id"] } } },
+			{ $project : { _id: 0, nama: 1 }}
+		],
+		as: 'siswa'
+	}
+}, {
+	$lookup: {
+		from: 'mapels',
+		let: {mapel_id: "$mapel"}, // declare variable
+		pipeline: [
+			{ $match: { $expr: { $eq:["$_id", "$$mapel_id"] } } },
+			{ $project : { _id: 0, nama_mapel: 1 }} // show / hide fields
+		],
+		as: 'mapel'
+	}
+},
+{ $unwind: "$siswa"}, // un array
+{ $unwind: "$mapel" }, // un array
+{ $replaceRoot: { newRoot: { $mergeObjects: [ {nama: "$siswa.nama"}, {nama_mapel: "$mapel.nama_mapel"}, "$$ROOT" ] } } },
+{ $project: { _id: 0, siswa: 0, mapel: 0} },
+{
+	$group: {
+		_id: {
+			$concat: ["$nama", " at ","$nama_mapel"]
+		},
+		"rata rata nilai": {
+			$avg: "$nilai"
+		},
+		"nilai tertinggi": {
+			$max: "$nilai"
+		},
+		"nilai terendah": {
+			$min: "$nilai"
+		},
+		"total nilai": {
+			$sum: "$nilai"
+		},
+	}
+}
+]).pretty()
+

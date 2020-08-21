@@ -1,0 +1,5 @@
+db.students.find({
+	'pendidikan.data_sekolah.address.district': "Pulung"
+}).pretty()
+
+// select * from students where 'pendidikan.data_sekolah.address.district' = 'Pulung';
