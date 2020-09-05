@@ -1,0 +1,9 @@
+db.user.find({username: /.*\-chan/}) # with suffix "-chan"
+// select * from user where username like '%-kun';
+
+db.user.find({username: /Mrs\..*/}) # with prefix "Mrs."
+// select * from user where username like 'Mrs.%';
+
+db.user.find({username: /.*Jean.*/}) # with contain "Jean"
+// select * from user where username like '%Jean%';
+

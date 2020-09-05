@@ -1,0 +1,21 @@
+// use db_exams
+
+db.exams.aggregate([{
+	$group: {
+		_id: {
+			nama_siswa: "$siswa"
+		},
+		list_mapel: {
+			$push : {
+				mapel: "$mapel",
+				nilai: {
+					$avg: "$nilai"
+				}
+			}
+		}
+	}
+},{
+	$sort: {
+		_id: 1
+	}
+}]).pretty()

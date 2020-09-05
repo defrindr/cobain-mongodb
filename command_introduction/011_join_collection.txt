@@ -1,0 +1,89 @@
+// data from schema_2.txt
+// you can restore that, for pratice this example
+
+db.exams.aggregate([{
+	$lookup: {
+		from: 'siswa',
+		localField: 'siswa',
+		foreignField: '_id',
+		as: 'siswa'
+	}
+},
+{
+	$lookup: {
+		from: 'mapels',
+		localField: 'mapel',
+		foreignField: '_id',
+		as: 'mapel'
+	}
+},{
+	$replaceRoot: { 
+		newRoot: { 
+			$mergeObjects: [
+				{$arrayElemAt: [ "$siswa",0 ]}, // add `siswa` schema to root schema
+				{$arrayElemAt: [ "$mapel",0 ]}, // add `mapels` schema to root schema
+				"$$ROOT"
+			]
+		}
+	}
+},
+{ $project: {_id: 0,siswa: 0, mapel:0} } // drop schema siswa & mapels , and field _id
+]).pretty()
+
+
+
+
+
+// with pipeline
+// and return specific field
+db.exams.aggregate([{
+	$lookup: {
+		from: 'siswa',
+		let: {siswa_id: "$siswa"}, // declare variable
+		pipeline: [
+			{ $match: {
+				$expr: {
+					$eq:["$_id", "$$siswa_id"] // equal
+				}
+			} },
+			{ $project : { _id: 0, nama: 1 }} // show / hide fields
+		],
+		as: 'siswa'
+	}
+}, {
+	$lookup: {
+		from: 'mapels',
+		let: {mapel_id: "$mapel"}, // declare variable
+		pipeline: [
+			{ $match: {
+				$expr: {
+					$eq:["$_id", "$$mapel_id"] // equal
+				}
+			} },
+			{ $project : { _id: 0, nama_mapel: 1 }} // show / hide fields
+		],
+		as: 'mapel'
+	}
+},{
+	$unwind: "$siswa" // un array
+},{
+	$unwind: "$mapel" // un array
+},{
+	$replaceRoot: { 
+		newRoot: { 
+			$mergeObjects: [
+				{nama: "$siswa.nama"}, // add `nama` to root schema
+				{nama_mapel: "$mapel.nama_mapel"}, // add `nama_mapel` to root schema
+				"$$ROOT"
+			]
+		}
+	}
+},{
+	$project: {
+		_id: 0,
+		siswa: 0, // hide siswa
+		mapel: 0, // hide mapel
+	}
+}]).pretty()
+
+

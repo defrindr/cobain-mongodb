@@ -1,0 +1,18 @@
+// specific add field
+db.[collection_name].update({[specific_field_name]: [specific_field_value]}, {
+	$set: {
+		[new_field_name_1]: [new_field_value_1],
+		[new_field_name_2]: [new_field_value_2]
+	}
+})
+
+// all documents
+db.[collection_name].update({}, {
+	$set: {
+		[new_field_name]: [new_field_value],
+	}
+},
+{
+	upsert: false,
+	multi: true
+})

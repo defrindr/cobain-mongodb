@@ -1,0 +1,9 @@
+show dbs;
+// show databases; # or
+// select disctinct(table_schema) from information_schema.tables;
+
+use [database];
+// use [database];
+
+show collections
+// show tables;
