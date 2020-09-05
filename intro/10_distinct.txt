@@ -1,3 +1,0 @@
-db.[collection_name].distinct([field_name])
-
-// select distinct([field_name]) from [collection_name]

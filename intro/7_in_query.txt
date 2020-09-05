@@ -1,7 +1,0 @@
-db.students.find({
-	jenis_kelamin: {
-		$in : ["P","L"]
-	}
-}).pretty()
-
-// select * from students where jenis_kelamin in ("P", "L")

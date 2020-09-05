@@ -1,8 +1,0 @@
-// create collection
-db.createCollection([collection_name])
-
-// rename collection
-db.[collection_name].renameCollection([new_collection_name])
-
-// drop collection
-db.[collection_name].drop()

@@ -1,2 +1,0 @@
-db.[collection_name].find()
-// select * from [collection_name];

@@ -1,7 +1,0 @@
-db.[collection_name].find().sort({[field_name]: 1})
-
-// select * from [collection_name] order by [field_name] ASC;
-
-db.[collection_name].find().sort({[field_name]: -1})
-
-// select * from [collection_name] order by [field_name] DESC;

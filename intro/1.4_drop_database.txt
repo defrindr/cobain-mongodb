@@ -1,3 +1,0 @@
-use [database_name]
-
-db.dropDatabase()

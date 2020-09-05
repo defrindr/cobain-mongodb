@@ -1,6 +1,0 @@
-db.[collection_name].insert(
-	{
-		nama: 'Defri Indra Mahardika',
-		usia: 17
-	}
-)

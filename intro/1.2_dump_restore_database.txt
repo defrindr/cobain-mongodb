@@ -1,9 +1,0 @@
-// example for mongo version 4.2 +
-// run it on terminal / cmd
-
-// dump database
-mongodump --archive="[archive_name]" --db="[db_name]"
-
-// restore database with new name
-mongorestore --archive="[archive_name]" --nsFrom="[old_db_name].*" --nsTo="[new_db_name].*" 
-
