@@ -37,8 +37,8 @@
 
 0. Buka Terminal
 
-1. pergi ke directory database, atau buat directory baru. 
-	example: 'cd ~/Documents/Learn/mongodb/database'
+1. pergi ke directory database, atau buat directory baru. <br>
+   example: 'cd ~/Documents/Learn/mongodb/database'
 
 2. Jalankan perintah ```mongod```
 
@@ -46,7 +46,8 @@
 
 4. Jalankan perintah ```mongo```
 
-    Catatan : Jika mengalami <i>error</i> ```sock``` pada tahap 2, hapus file ```sock``` yang berada di ```/tmp```
+> Catatan :  
+> Jika mengalami <i>error</i> ```sock``` pada tahap 2, hapus file ```sock``` yang berada di ```/tmp```
 
 
 ### Mongod
@@ -85,12 +86,14 @@ RESTORE :
 mongorestore --archive="[archive_name]" --nsFrom="[old_db_name].*" --nsTo="[new_db_name].*" 
 ```
 
-    Catatan : Hanya bekerja pada mongo 4.2+
+> Catatan :
+> Hanya bekerja pada mongo 4.2+
 
 
 
 
 ## Basic Command
+
 Menampilkan semua database :
 ```
 show dbs;
@@ -279,11 +282,12 @@ db.[collection_name].update({}, {
 ```
 db.[collection_name].find({ username: /.*\-chan/ })
 ```
-
 Versi SQL :
 ```sql
 select * from [collection_name] where username like '%-kun';
 ```
+
+<hr>
 
 ```
 db.[collection_name].find({ username: /Mrs\..*/ })
@@ -293,6 +297,8 @@ Versi SQL :
 ```sql
 select * from [collection_name] where username like 'Mrs.%';
 ```
+
+<hr>
 
 ```
 db.[collection_name].find({ username: /.*Jean.*/ });
@@ -359,18 +365,19 @@ select * from [collection_name] order by fullname DESC;
 ## Distinct
 
 ```
-db.[collection_name].distinct('field_name')
+db.[collection_name].distinct('[field_name]')
 ```
 Versi SQL :
 
 ```sql
-select distinct(field_name) from [collection_name]
+select distinct([field_name]) from [collection_name]
 ```
 
 ## JOIN query
 
-database from schema_2.txt
-you can restore that, for pratice this example
+> Catatan :
+> Restore ```db_exams``` untuk menjalankan contoh dibawah.
+
 
 ```
 db.exams.aggregate([{
@@ -406,8 +413,9 @@ db.exams.aggregate([{
 
 
 
-atau dengan menggunakan <i>pipeline</i>
+atau dengan menggunakan <i>pipeline</i> <br>
 dan mengembalikan <i>specific field</i>
+
 ```
 db.exams.aggregate([{
 	$lookup: {
@@ -491,7 +499,8 @@ db.listBuah.aggregate({
 
 ## Push Array ( Grouping )
 
-Restore ```db_exams``` untuk latihan.
+> Catatan :
+> Restore ```db_exams``` untuk menjalankan contoh dibawah.
 
 ```
 db.exams.aggregate([{
@@ -518,7 +527,8 @@ db.exams.aggregate([{
 
 ## Advanced query
 
-Restore ```db_exams``` untuk latihan.
+> Catatan :
+> Restore ```db_exams``` untuk menjalankan contoh dibawah.
 
 ```
 db.exams.aggregate([{
