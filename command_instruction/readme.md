@@ -38,7 +38,10 @@
 0. Buka Terminal
 
 1. pergi ke directory database, atau buat directory baru. <br>
-   example: 'cd ~/Documents/Learn/mongodb/database'
+   example: 
+```
+cd ~/Documents/Learn/mongodb/database
+```
 
 2. Jalankan perintah ```mongod```
 
